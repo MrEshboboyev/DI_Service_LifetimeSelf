@@ -1,4 +1,5 @@
 using DI_Service_Lifetime.Models;
+using DI_Service_Lifetime.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,7 +7,12 @@ namespace DI_Service_Lifetime.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IScopedGuidService _scoped1;
+        private readonly IScopedGuidService _scoped2;
+        private readonly ISingletonGuidService _singleton1;
+        private readonly IScopedGuidService _singleton2;
+        private readonly ITransientGuidService _transient1;
+        private readonly IScopedGuidService _transient2;
 
         public HomeController(ILogger<HomeController> logger)
         {
