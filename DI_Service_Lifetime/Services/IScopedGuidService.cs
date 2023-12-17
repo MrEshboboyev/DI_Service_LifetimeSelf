@@ -2,5 +2,6 @@
 {
     public interface IScopedGuidService
     {
+        string GetGuid();
     }
 }

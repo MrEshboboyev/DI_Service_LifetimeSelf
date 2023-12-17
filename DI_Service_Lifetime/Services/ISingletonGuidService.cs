@@ -2,5 +2,6 @@
 {
     public interface ISingletonGuidService
     {
+        string GetGuid();
     }
 }
