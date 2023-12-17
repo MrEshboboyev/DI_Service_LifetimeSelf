@@ -2,6 +2,7 @@ using DI_Service_Lifetime.Models;
 using DI_Service_Lifetime.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text;
 
 namespace DI_Service_Lifetime.Controllers
 {
@@ -32,7 +33,15 @@ namespace DI_Service_Lifetime.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            StringBuilder messages = new StringBuilder();
+            messages.Append($"Scoped 1 : {_scoped1.GetGuid()}\n");
+            messages.Append($"Scoped 2 : {_scoped2.GetGuid()}\n\n\n");
+            messages.Append($"Singleton 1 : {_singleton1.GetGuid()}\n");
+            messages.Append($"Singleton 1 : {_singleton2.GetGuid()}\n\n\n");
+            messages.Append($"Transient 1 : {_transient1.GetGuid()}\n");
+            messages.Append($"Transient 1 : {_transient2.GetGuid()}\n\n\n");
+
+            return Ok(messages.ToString());
         }
 
         public IActionResult Privacy()

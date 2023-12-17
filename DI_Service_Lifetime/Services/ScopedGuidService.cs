@@ -9,7 +9,7 @@
         }
         public string GetGuid()
         {
-            throw new NotImplementedException();
+            return Id.ToString();
         }
     }
 }
